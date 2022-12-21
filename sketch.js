@@ -42,7 +42,7 @@ function setup() {
   angleMode(DEGREES)
   angle = 15
   background_music.play();
-  background_music.setVolume(0.0);
+  background_music.setVolume(0.3);
 
   ground = Bodies.rectangle(0, height - 1, width * 2, 1, { isStatic: true });
   World.add(world, ground);
@@ -123,7 +123,7 @@ function collisionWithBoat(index) {
         Matter.World.remove(world, balls[index].body);
         delete balls[index];
         explosion.play();
-        explosion.setVolume(0.2)
+        explosion.setVolume(0.1)
       }
     }
   }
@@ -145,6 +145,7 @@ function showCannonBalls(ball, index) {
     if (ball.body.position.x >= width || ball.body.position.y >= height - 50) {
       if (!ball.isSink){
         water.play();
+        water.setVolume(0.2);
       }
       ball.remove(index);
     }
